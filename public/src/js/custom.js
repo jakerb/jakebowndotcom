@@ -6,17 +6,19 @@
     dataType: 'jsonp',
     success: function(response) {
       if(typeof response.data == 'object') {
-        var target = 'uk-activity-p';
-        var target_div = 'uk-activity';
+        var target = '.uk-activity-p';
+        var target_div = '.uk-activity';
         var str = 'Over the past 7 days I have used ';
         for (var i = response.data.length - 1; i >= 0; i--) {
           var data = response.data[i];
           str += (!i ? ' and ' : '') + data.name + " " + data.percent + "% ";
         }
+        
+        $(target).text(str);
+        $(target_div).removeClass('uk-hidden');
       }
       
-      $(target).text(str);
-      $(target_div).removeClass('uk-hidden');
+      
     },
   });
     
