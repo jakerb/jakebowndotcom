@@ -17,6 +17,7 @@
 	</script>
 	<script src="public/src/js/uikit.min.js"></script>
 	<script src="public/src/js/uikit-icons.min.js"></script>
+	<script src="public/src/js/jquery.min.js"></script>
 </head>
 <body>
 	
@@ -45,6 +46,11 @@
 				<p class="uk-text-small">
 					<a href="https://chrome.google.com/webstore/detail/updoot-for-reddit/jokmajdmmomojfbejghimcklehlmmoji">Updoot for Chrome</a> Adds shortcuts, mods and tools for Reddit.
 				</p>
+				
+				<div class="uk-hidden uk-activity">
+					<p class="uk-comment">/* activity */</p>
+					<div class="uk-activity-container"></div>
+				</div>
 
 			</div>
 			<div class="uk-width-expand uk-text-right uk-hidden">
@@ -55,7 +61,8 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<script src="public/src/js/custom.js"></script>
 	<script type="text/javascript">
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
