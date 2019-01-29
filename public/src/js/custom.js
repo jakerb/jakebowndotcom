@@ -11,7 +11,7 @@
         var str = 'Over the past 7 days I have used ';
         for (var i = response.data.length - 1; i >= 0; i--) {
           var data = response.data[i];
-          str += (!i ? ' and ' : '') + data.name + " " + data.percent + "% ";
+          str += (!i ? ' and ' : '') + data.name.toLowerCase() + " " + data.percent + "%" + (!i ? '' : ', ');
         }
         
         $(target).text(str);
