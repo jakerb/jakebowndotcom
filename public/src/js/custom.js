@@ -13,8 +13,8 @@
           var data = response.data[i];
           str += (!i ? ' and ' : '') + data.name.toLowerCase() + " " + data.percent + "%" + (!i ? '' : ', ');
         }
-        str += '. Data is provided via the <a href="https://wakatime.com/developers">Wakatime API</a>.'
-        $(target).text(str);
+        str += '. Data is provided via the <a href="https://wakatime.com/developers">Wakatime API</a>.';
+        $(target).html(str);
         $(target_div).removeClass('uk-hidden');
       }
       
