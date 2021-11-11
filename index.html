@@ -1,186 +1,391 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jake Bown - Full Stack Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/circular-std.css">
-  <style>
-    html {
-      font-family: sans-serif; /* 1 */
-      -ms-text-size-adjust: 100%; /* 2 */
-      -webkit-text-size-adjust: 100%; /* 2 */
-    }
-    body {
-      margin: 0;
-      word-break: break-word;
-      caret-color: rgb(55, 53, 47);
-      display: flex;
-      align-items: center;
-      font-family:"CircularStd",  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-      -webkit-font-smoothing: auto;
-      font-size: 1.25em;
-      line-height: 1.4;
-      color: #2C3E50;
-      background: #fff;
-    }
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/circular-std.css">
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
 
-    main {
-      width: 600px;
-      margin: 0 auto;
-      padding-top: 15px;
-      position: relative;
-    }
-    main a {
-      text-decoration: none;
-      color: #2C3E50;
-      border-bottom: 3px solid #2C3E50;
-    }
-    main header {
-      text-align: right;
-      margin-bottom: 15px;
-    }
-    main header a {
-      font-size: 0.8em;
-      line-height: 1.2;
-      min-width: 0px;
-      padding-left: 6px;
-      padding-right: 6px;
-      border: none;
-    }
-  
-    main img {
-      border-radius: 3px;
-    }
+		html {
+			background: #021538;
+			height: 100%;
+			color: #fff;
+			letter-spacing: 0.333px;
+		}
 
-    main h1 {
-      font-size: 100px;
-      margin-bottom: 0;
-    }
+		h1 {
+			font-family: "CircularStd", sans-serif;
+		}
 
-    main h2 {
-      padding-top: 25px;
-    }
+		p[class]:not(.lh-auto) {
+			line-height: 2rem;
+		}
 
-    main h2.waving-hand {
-      text-align: center;
-      font-size: 2em;
-      padding-top: 10px;
-    }
+		a[href]:not([href="#"]),
+		a[href]:not([href="#"]):hover svg,
+		a[href]:not([href="#"]):active svg,
+		a[href]:not([href="#"]):focus  svg{
+			color: #11ff9d;
+			stroke: #11ff9d;
+		}
 
-    main h3 {
-      margin-bottom: 0;
-    }
+		h1 span {
+			transition: color 0.6s;
+			-moz-transition: color 0.6s;
+			-webkit-transition: color 0.6s;
+		}
+		span.highlight {
+			color: #11ff9d;
+		}
 
-    main h3 ~ p {
-      margin-top: 5px;
-    }
+		div.progress {
+			position: fixed;
+			top:  0;
+			left: 0;
+			height:  1px;
+			z-index: 10;
+			pointer-events: none;
+			background: #11ff9d;
+		}
 
-    main hr {
-      border: 0;
-      margin: 70px auto;
-      background: rgba(0,0,0,0.2);
-      width: 25px;
-      height: 5px;
-    }
+		table.work-edu-table tbody tr td {
+			vertical-align: top;
+			padding:  1rem;
+			border-bottom:  1px solid rgba(255,255,255,0.1);
+		}
 
-  </style>
+		@media screen and (max-width: 768px) {
 
+			table.work-edu-table thead tr th {
+				width:  50%;
+			}
+
+			table.work-edu-table thead tr th:nth-child(2),
+			table.work-edu-table tbody tr td:first-child {
+				display:  none;
+			}
+
+			table.work-edu-table thead tr th[style="width:10%"] {
+				width:  50% !important;
+				text-align: left;
+			}
+		}
+
+		@media screen and (min-width: 768px) {
+			#top-hero {
+				border:  1rem solid #fff;
+				position: fixed;
+				top:  0;
+				lef:  0;
+				width: 100%;
+				height: 100%;
+				/*opacity:  0;*/
+				z-index: 2;
+			}
+
+			div.container.hero-above {
+				margin-top: 100vh;
+			}
+
+			.untouchable {
+				pointer-events: none;
+			}
+		}
+
+	</style>
 </head>
 <body>
 
-  <main>
-    <header>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </header>
+	<div class="progress"></div>
 
-    <!-- <img src="img/jake_charlie.png" width="100%" alt=""> -->
-    
-    <h1 id="about">Hi, I'm Jake.</h1>
-    <p>I'm a full stack developer based in Shropshire, UK. Passionate about code, new tech and problem solving, I love taking on challenging technical projects.</p>
+	<div class="flex h-screen items-center" id="top-hero">
+		<div class="lg:w-2/3 inline-block container m-auto align-middle p-12 animate__animated animate__fadeInUp">
+			<h1 class="text-4xl lg:text-8xl md:text-6xl mb-8"><strong><span class="highlight">Hello</span>, I'm<br/>Jake Bown.</strong></h1>
+			<p class="text-lg mb-4">I'm a full stack developer and Head of Digital Solutions at <a target="_blank" href="https://twitter.com/yarringtonltd">@yarringtonltd</a>.</p>
+			<p class="text-lg mb-6">I'm Passionate about code, new tech and problem solving,<br/>I love taking on challenging technical projects.</p>
 
-    <p>I have been privileged to have worked with some great companies including Beano Studios, Jaguar Land Rover, Pearson, GOV.UK and been part of some awesome start-up projects.</p>
+			<p class="text-lg mb-4"></p>
+
+			<p>
+				
+				<a class="inline-block mr-2" href="https://github.com/jakerb">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+				</a>
+
+				<a class="inline-block mr-2" href="https://codepen.io/jakebown/">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-codepen"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline><polyline points="2 15.5 12 8.5 22 15.5"></polyline><line x1="12" y1="2" x2="12" y2="8.5"></line></svg>
+				</a>
+
+				<a class="inline-block mr-2" href="https://twitter.com/JakeBown1">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+				</a>
+
+				<a class="inline-block mr-2" href="https://linkedin.com/in/jakebown">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+				</a>
+
+				<a class="inline-block mr-2" href="mailto:jakebown@gmail.com">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+				</a>
+
+			</p>
+		</div>
+	</div>
+
+	<div class="container hero-above m-auto p-12">
+
+		<h1 class="text-3xl lg:text-5xl md:text-3xl mb-8 p-2"><strong>I have been privileged to have worked with some great companies including <span>Beano Studios</span>, <span>Jaguar Land Rover</span>, <span>Pearson</span>, <span>GOV.UK</span> and been part of some awesome start-up projects.</strong></h1>
+		<br>
+		<table class="w-full work-edu-table mt-10">
+			<thead>
+				<tr>
+					<th style="width:10%">
+						<h1 class="text-3xl mb-8"><strong><a href="#">Work</a></strong>.</h1>
+					</th>
+					<th style="width:45%" class="text-left"></th>
+					<th style="width:45%" class="text-left"><h1 class="text-3xl mb-8"><strong><a href="#">Education</a></strong>.</h1></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><p class="text-lg pt-0 p-4"><strong>2007</strong></p></td>
+					<td></td>
+					<td>
+						<div class="rounded-md text-white font-semibold">
+							<p class="text-lg mt-0">Westlakes Academy</p>
+							<p><small>GCSE Match, English &amp; Science — 2007 - 2011</small></p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><p class="text-lg pt-0 p-4"><strong>2008</strong></p></td>
+					<td>
+						<div class="rounded-m  text-white font-semibold">
+							<p class="text-lg mt-0">Full Stack Developer</p>
+							<p><small>[Freelance] — 2008 - Present</small></p>
+						</div>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><p class="text-lg pt-0 p-4"><strong>2011</strong></p></td>
+					<td></td>
+					<td>
+						<div class="rounded-md text-white font-semibold">
+							<p class="text-lg mt-0">Carlisle College</p>
+							<p><small>Distinction in IT &amp; Computing — 2011 - 2011</small></p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><p class="text-lg p-4 pt-0"><strong>2012</strong></p></td>
+					<td></td>
+					<td>
+						<div class="rounded-md text-white font-semibold">
+							<p class="text-lg mt-0">Teesside University</p>
+							<p><small>Web &amp; Multimedia Fdt. Degree — 2012 - 2013</small></p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><p class="text-lg p-4 pt-0"><strong>2013</strong></p></td>
+					<td>
+						<div class="rounded-md  text-white font-semibold">
+							<p class="text-lg">Full Stack Developer</p>
+							<p><small>[Freelance] Press Loft Ltd. — 2013 - 2015</small></p>
+						</div>
+					</td>
+					<td>
+						<div class="rounded-md text-white font-semibold">
+							<p class="text-lg mt-0">University of Greenwich</p>
+							<p><small>BSc Hons. Web Development 2:1 — 2013 - 2015</small></p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><p class="text-lg p-4 pt-0"><strong>2015</strong></p></td>
+					<td>
+						<div class="rounded-md text-white font-semibold mb-3">
+							<p class="text-lg">Frontend Developer</p>
+							<p><small>[Freelance] Connect Group — 2015 - 2015</small></p>
+						</div>
+						<div class="rounded-md  text-white font-semibold">
+							<p class="text-lg">Backend PHP Developer</p>
+							<p><small>Guestline Limited — 2015 - 2017</small></p>
+						</div>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><p class="text-lg p-4 pt-0"><strong>2017</strong></p></td>
+					<td>
+						<div class="rounded-md text-white font-semibold">
+							<p class="text-lg">Full Stack Developer</p>
+							<p><small>Yarrington Limited — 2017 - 2021</small></p>
+						</div>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><p class="text-lg p-4 pt-0"><strong>2018</strong></p></td>
+					<td>
+						<div class="rounded-md text-white font-semibold">
+							<p class="text-lg">Lead Developer</p>
+							<p><small>Yarrington MyAppuccino — 2018 - Present</small></p>
+						</div>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><p class="text-lg p-4 pt-0"><strong>2021</strong></p></td>
+					<td>
+						<div class="rounded-md text-white font-semibold">
+							<p class="text-lg">Head of Digital Solutions</p>
+							<p><small>Yarrington Limited — 2021 - Present</small></p>
+						</div>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		
+	</div>
+
+	<div class="container m-auto p-12">
+		<div>
+			<h1 class="text-3xl mb-8"><strong>Recent Projects.</strong></h1>
+
+				<div class="grid lg:grid-cols-3 gap-4 mb-8">
+				  <div>
+				  	<div class="bg-white-500 rounded-md p-2 px-4 mb-4">
+				  		<p class="text-lg"><strong>PollTime</strong></p>
+				  		<p class="text-left mb-1">
+							<a href="https://polltime.me" target="_blank" class="text-sm">View Project</a>
+						</p>
+				  		<p class="lh-auto mb-1"><small>PollTime is a free to use meeting/meet-up planning tool that allows anyone to "poll" for times that everyone is available. Simply set the location, the times you have available and let PollTime gather when all your invitees are available. This project is still in development and look to market it in the coming months.</small></p>
+				  	</div>
+				  </div>
+				  <div>
+				  	<div class="bg-white-500 rounded-md p-2 px-4">
+				  		<p class="text-lg"><strong>Write.md</strong></p>
+				  		<p class="text-left mb-1">
+							<a href="https://writemd.cyx" target="_blank" class="text-sm">View Project</a>
+						</p>
+				  		<p class="lh-auto mb-1"><small>Write.md is an easy to use markdown editor tool that automatically creates a shareable document URL to make sharing and collaboration quick and easy.</small></p>
+
+				  		<p class="lh-auto"><small>This is an active side project I developed when I couldn't find a distraction free word processor when writing project tenders and technical docs. Upon posting on Product Hunt Write.md gained #4 Product of the Day and currently hosts over 15,000 documents with 5,000 MAU's.</small></p>
+				  	</div>
+				  	
+				  </div>
+				  <div>
+				  	<div class="bg-white-500 rounded-md p-2 px-4">
+				  		<p class="text-lg"><strong>Find a Seder</strong></p>
+				  		<p class="text-left mb-1">
+							<a href="https://findaseder.com" target="_blank" class="text-sm">View Project</a>
+						</p>
+				  		<p class="lh-auto"><small>As the Jewish holiday Passover occured during the 2020 COVID-19 lockdown I was approached to help build an online resource to connect individuals spending this time alone to virtual Sedars hosted by others celebrating Passover across the world. The site was built using WordPress and implemented custom functionality for public users to submit as a host or express an interest in joining a virtual Seder.</small></p>
+				  	</div>
+				  </div>
+				</div>
+				<div class="grid lg:grid-cols-3 gap-4">
+
+					<div>
+						<div class="bg-white-500 rounded-md p-2 px-4">
+					  		<p class="text-lg"><strong>Appuccino</strong></p>
+					  		<p class="text-left mb-1">
+								<a href="https://github.com/jakerb/appuccino/wiki/1.-Introduction" target="_blank" class="text-sm">View Project</a>
+							</p>
+					  		<p class="lh-auto mb-1"><small>Appuccino is mobile application development framework I have been developing over a number of years. It allows developers to build completely bespoke hybrid apps for iOS and Android using WordPress as a backend and Javascript. More recently Appuccino offers realtime app generation, certificate signing and asset generation all in the cloud. Appuccino is currently licensed under MyAppuccino.</small></p>
+					  	</div>
+					</div>
+					<div>
+						<div class="bg-white-500 rounded-md p-2 px-4">
+					  		<p class="text-lg"><strong>Toolzilla</strong></p>
+					  		<p class="text-left mb-1">
+								<a href="https://toolzilla.app" target="_blank" class="text-sm">View Project</a>
+							</p>
+					  		<p class="lh-auto mb-1"><small>Using WordPress on a daily basis for the past 6 years I have amassed a library of snippets, generators and documentation that I have written and used in projects.<br/>I then decided that I should offer my work to other WordPress developers in the community and so created Toolzilla. This is a relatively new side-project and I am spending my free time porting my code snippets and tools to the site.</small></p>
+					  	</div>
+					</div>
+				</div>
+
+			</div>
+	</div>
+
+	<div class="container m-auto p-12">
+		<div>
+			<h1 class="text-3xl lg:text-5xl md:text-3xl mb-2 p-3">
+				<strong>Day-to-day I write in <span class="highlight">PHP</span>, <span class="highlight">Javascript</span> and <span class="highlight">Sass</span> in projects built under <span class="highlight">WordPress</span>, <span class="highlight">CodeIgniter</span> or <span class="highlight">static</span>. I then commit to <span class="highlight">Git</span>, <span class="highlight">Netify</span> or <span class="highlight">Apache</span>.</strong>
+			</h1>
+			<p class="mb-8 p-3">More recently I've been using <span class="highlight">Nativescript</span>, <span class="highlight">Python</span> and <span class="highlight">Electron</span> in my spare time.</p>
+
+			<h1 class="text-3xl mb-4 p-3"><strong>Tech I Use.</strong></h1>
+
+			<div class="grid lg:grid-cols-3 gap-4">
+
+				<div>
+					<div class="bg-white-500 rounded-md p-3">
+				  		<p class="text-lg"><strong>Back-end</strong></p>
+				  		<p class="lh-auto mb-1"><small>PHP, SQL, WordPress, Apache, Jenkins, Composer, Mongo, Node, Git, Slim, CodeIgniter, Socket.io, SSH, Server/DNS Config, Bash, Netlify, Grav, Directus.</small></p>
+				  	</div>
+				</div>
+				<div>
+					<div class="bg-white-500 rounded-md p-3">
+				  		<p class="text-lg"><strong>Front-end</strong></p>
+				  		<p class="lh-auto mb-1"><small>Javascript, Angular.js, Tailwind, Bootstrap, UIKit, CSS, SCSS, HTML5, Bower, Grunt, Gulp, Bootstrap, AJAX, Cordova, Capacitor, Ionic, Underscore, Lodash.</small></p>
+				  	</div>
+				</div>
+				<div>
+					<div class="bg-white-500 rounded-md p-3">
+				  		<p class="text-lg"><strong>Software</strong></p>
+				  		<p class="lh-auto mb-1"><small>Sketch, Photoshop, XCode, Sequel Pro, VSCode, Figma, Sublime Text, Postman, Blender, Adobe XD, Microsoft Teams, Slack, JIRA, Trello, Zoom.</small></p>
+				  	</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container m-auto p-12 text-center">
+		<h1 class="text-2xl mb-2 p-3">Got a project? <a href="mailto:jakebown@gmail.com">Get in touch</a>.</h1>
+	</div>
+
+	<script>
+		var hero = $('#top-hero');
+		var below_hero = $('.hero-above');
+		var progress = $('.progress');
+
+		var scroll_handler = function() {
+			var offset = $(document).scrollTop();
+			var pageW = $(window).width();
+			var pageH = $(document).height() - $(window).height();
+			var px = offset/200;
+			var scrollP = 100 * offset / pageH;
 
 
-    <h3>Technologies.</h3>
+			progress.css('width', scrollP + '%');
+			hero.find('h1,p').css('opacity', pageW > 767 ? (1-px) : 1);
 
-    <p><strong>Backend.</strong> PHP, SQL, WordPress, Apache, Capacitor/Ionic CLI, Jenkins, Composer, Mongo, Node, GIT, Slim,Redis, Gun.js, CodeIgniter, Socket.io, SSH, SOAP/REST.</p>
+			if(px <= 1.5) {
+				
+				hero.css('border-width', (1+(px/1.5))+'rem');
+			}
 
-    <p><strong>Frontend</strong> Javascript, jQuery, Angular.js, CSS, SCSS, HTML5, Bower, Grunt, Gulp, Bootstrap, AJAX, Cordova, Capacitor, Ionic, UIKit, Underscore, Lodash.</p>
+			if(px > 2) {
+				hero.addClass('untouchable');
+				below_hero.find('h1 span').addClass('highlight');
+			} else {
+				hero.removeClass('untouchable');
+			}
+		}
 
-    <p><strong>Software</strong> Sketch, Photoshop, XCode, Sequel Pro, Sublime Text, Postman, Blender,  XD, Mac, Github, Slack, Sketch, Teams, Slack, JIRA, Trello, Zoom.</p>
-
-    <h2 id="education">Education.</h2>
-
-    <h3>University of Greenwich</h3>
-    <p>BSC Hons in Web Development (Achieved 2:1) &mdash; 2013 - 2015</p>
-
-    <h3>Teesside University</h3>
-    <p>Web &amp; Multimedia Foundation Degree &mdash; 2012 - 2013</p>
-
-    <h3>Carlise College</h3>
-    <p>IT and Computing (Achieved Distinction Level) &mdash; 2011 - 2012</p>
-
-    <h3>Westlakes Academy</h3>
-    <p>GSCE levels in Maths, English &amp; Science &mdash; 2007 - 2011</p>
-  
-    <h2 id="experience">Experience.</h2>
-
-    <h3>MyAppuccino</h3>
-    <p>Lead Developer 2018 - Present.</p>
-
-    <h3>Yarrington Limited</h3>
-    <p>Full Stack Developer 2017 - Present.</p>
-
-    <h3>Connect Group</h3>
-    <p>Freelance Front-end Developer.</p>
-
-    <h3>Press Loft</h3>
-    <p>Freelance Front-end Developer.</p>
-
-
-
-    <h2 id="projects">Projects.</h2>
-    
-    <h3><a target="_blank" href="https://writeeveryday.app/">Write Every Day</a></h3>
-    <p>Write Every Day is a platform to allow anyone to freely write and develop a daily writing habit. The project initially started as an idea to improve on existing platforms that had a similar offering.<p>
-    <p>Built completely from scratch the platform is built using CodeIgniter, UIKit, Vanilla JS and makes use of multiple server instances and database clusters to deliver a fast and enjoyable experience to its users. The system also has multiple worker services to calculate statistics, generate AI analysis and deliver email reminders and updates to writers using the tool.</p>
-    <p>Write Every Day recently earned #5 on Product Hunt's Product of the Day and has amassed several hundreds users since its public release in October 2020</p>
-
-    <h3><a target="_blank" href="https://www.findaseder.com/">FindaSeder.com</a></h3>
-    <p>As the Jewish holiday Passover occured during the 2020 COVID-19 lockdown I was approached to help build an online resource to connect individuals spending this time alone to virtual Sedars hosted by others celebrating Passover across the world.</p>
-    <p>The site was built using WordPress and implemented custom functionality for public users to submit as a host or express an interest in joining a virtual Seder.</p>
-
-
-    <h3><a target="_blank" href="https://writemd.xyz">Writemd.xyz</a></h3>
-    <p>Write.md is an easy to use markdown editor tool that automatically creates a shareable document URL to make sharing and collaboration quick and easy.</p>
-    <p>This is an active side project I developed when I couldn't find a distraction free word processor when writing project tenders and technical docs. Upon posting on Product Hunt Write.md gained <a href="https://www.producthunt.com/posts/write-md" target="_blank">#4 Product of the Day</a> and currently hosts over 15,000 documents with 5,000 MAU's.</p>
-
-    <h3><a target="_blank" href="https://github.com/jakerb/appuccino/blob/master/CHANGELOG.md">Appuccino</a></h3>
-    <p>Appuccino is mobile application development framework I have been developing over a number of years. It allows developers to build completely bespoke hybrid apps for iOS and Android using WordPress as a backend and Javascript.</p>
-    <p>More recently Appuccino offers realtime app generation, certificate signing and asset generation all in the cloud. Appuccino is currently licensed under <a href="https://myappuccino.com" target="_blank">MyAppuccino</a>.</p>
-
-    <h3><a target="_blank" href="https://toolzilla.app">Toolzilla.app</a></h3>
-    <p>Using WordPress on a daily basis for the past 6 years I have amassed a library of snippets, generators and documentation that I have written and used in projects.</p>
-    <p>I then decided that I should offer my work to other WordPress developers in the community and so created Toolzilla. This is a relatively new side-project and I am spending my free time porting my code snippets and tools to the site.</p>
-
-
-
-    <h2 id="contact">Contact.</h2>
-    <p>You can take a look at my work on <a target="_blank" href="https://github.com/jakerb">Github</a> and <a target="_blank" href="https://codepen.io/jakebown/">CodePen</a> or find me on <a href="https://twitter.com">Twitter</a>, <a href="https://www.linkedin.com/in/jakebown/">LinkedIn</a>, <a href="https://www.youtube.com/channel/UCwNQTzhmPvSND1dkG_4e7DQ">Youtube</a> or <a href="mailto:me@jakebown.com">Email</a>.</p>
-
-    <br>
-
-    <h2 class="waving-hand">🖐</h2>
-
-  </main>
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-<script  src="./js/script.min.js"></script>
-
+		$(window).scroll(scroll_handler);
+		scroll_handler();
+	</script>
 </body>
 </html>

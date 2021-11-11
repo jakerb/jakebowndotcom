@@ -1,16 +1,9 @@
 {
-  "name": "ava",
+  "name": "WooCommerce Product Finder",
   "version": "1.0.0",
-  "description": "Ava Template",
-  "author": "Pasquale Vitiello <pasqualevitiello@gmail.com>",
+  "description": "ake the pain out of creating products in WordPress by searching and importing over 1.7M products with product description, attributes and images in just a click.",
+  "author": "Jake Bown <jakebown@gmail.com>",
   "license": "GPLv3",
-  "repository": {
-    "type": "git",
-    "url": "https://bitbucket.org/pasqualevitiello/ava.git"
-  },
-  "bugs": {
-    "url": "https://bitbucket.org/pasqualevitiello/ava/issues"
-  },
   "scripts": {
     "clean": "rimraf dist/{css/*,js/*,images/*}",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
