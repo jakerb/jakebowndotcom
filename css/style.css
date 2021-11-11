@@ -1,0 +1,85 @@
+html {
+	background: #021538;
+	height: 100%;
+	color: #fff;
+	letter-spacing: 0.333px;
+}
+
+h1 {
+	font-family: "CircularStd", sans-serif;
+}
+
+p[class]:not(.lh-auto) {
+	line-height: 2rem;
+}
+
+a[href]:not([href="#"]),
+a[href]:not([href="#"]):hover svg,
+a[href]:not([href="#"]):active svg,
+a[href]:not([href="#"]):focus  svg{
+	color: #11ff9d;
+	stroke: #11ff9d;
+}
+
+h1 span {
+	transition: color 0.6s;
+	-moz-transition: color 0.6s;
+	-webkit-transition: color 0.6s;
+}
+span.highlight {
+	color: #11ff9d;
+}
+
+div.progress {
+	position: fixed;
+	top:  0;
+	left: 0;
+	height:  1px;
+	z-index: 10;
+	pointer-events: none;
+	background: #11ff9d;
+}
+
+table.work-edu-table tbody tr td {
+	vertical-align: top;
+	padding:  1rem;
+	border-bottom:  1px solid rgba(255,255,255,0.1);
+}
+
+@media screen and (max-width: 768px) {
+
+	table.work-edu-table thead tr th {
+		width:  50%;
+	}
+
+	table.work-edu-table thead tr th:nth-child(2),
+	table.work-edu-table tbody tr td:first-child {
+		display:  none;
+	}
+
+	table.work-edu-table thead tr th[style="width:10%"] {
+		width:  50% !important;
+		text-align: left;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	#top-hero {
+		border:  1rem solid #fff;
+		position: fixed;
+		top:  0;
+		lef:  0;
+		width: 100%;
+		height: 100%;
+		/*opacity:  0;*/
+		z-index: 2;
+	}
+
+	div.container.hero-above {
+		margin-top: 100vh;
+	}
+
+	.untouchable {
+		pointer-events: none;
+	}
+}
